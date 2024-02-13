@@ -11,6 +11,9 @@ export default function MainPage() {
         <Link href="/week-3" className="m-10">
           Week 3
         </Link>
+        <Link href="/week-4" className="m-10">
+          Week 4
+        </Link>
       </main>
     </>
   );
