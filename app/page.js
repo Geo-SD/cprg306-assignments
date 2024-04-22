@@ -1,20 +1,22 @@
-import Pagy from "./week-2/page";
+"use client";
 import Link from "next/link";
+import Items from "./items";
+import DisplayItem from "./displayItem";
+import NewItem from "./newItem";
+import { useState } from "react";
+
 
 export default function MainPage() {
+  const [item, setItems] = useState([...Items]);
+
+  const addItem = (newItem) => {
+    setItems([...item, newItem]);
+  };
   return (
-    <>
-      <main>
-        <Link href="/week-2" className="m-10">
-          Week 2
-        </Link>
-        <Link href="/week-3" className="m-10">
-          Week 3
-        </Link>
-        <Link href="/week-4" className="m-10">
-          Week 4
-        </Link>
-      </main>
-    </>
+    <main className="min-h-screen bg-black">
+      <NewItem addItem={addItem} />
+      <DisplayItem Items={item} />
+    </main>
   );
 }
+
