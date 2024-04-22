@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import Items from "./items";
-import DisplayItem from "./displayItem";
-import NewItem from "./newItem";
+import Items from "./tasks";
+import DisplayItem from "./displayTask";
+import NewItem from "./newTask";
 import { useState } from "react";
 
 
