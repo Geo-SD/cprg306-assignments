@@ -1,21 +1,19 @@
-
-"use client";
+import React from "react";
 import Item from "./task";
 
-
-import { useState } from "react";
-function DisplayItem({ Items }) {
-
+function DisplayItem({ items, onDelete }) {
   return (
     <div>
-      {Items.map((item) => (
+      {items.map((item) => (
         <Item
           key={item.id}
           name={item.task}
           category={item.priority}
+          onDelete={() => onDelete(item.id)}
         />
       ))}
     </div>
   );
 }
+
 export default DisplayItem;

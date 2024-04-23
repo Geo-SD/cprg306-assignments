@@ -1,22 +1,27 @@
 "use client";
-import Link from "next/link";
+import { useState } from "react";
 import Items from "./tasks";
 import DisplayItem from "./displayTask";
 import NewItem from "./newTask";
-import { useState } from "react";
-
 
 export default function MainPage() {
-  const [item, setItems] = useState([...Items]);
+  const [items, setItems] = useState([...Items]);
 
+  // Function to add a new item
   const addItem = (newItem) => {
-    setItems([...item, newItem]);
+    setItems([...items, newItem]);
   };
+
+  // Function to delete an item by ID
+  const deleteItem = (id) => {
+    const updatedItems = items.filter((item) => item.id !== id);
+    setItems(updatedItems);
+  };
+
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black p-4">
       <NewItem addItem={addItem} />
-      <DisplayItem Items={item} />
+      <DisplayItem items={items} onDelete={deleteItem} />
     </main>
   );
 }
-
